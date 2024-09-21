@@ -20,9 +20,10 @@ turn2=0 #put the number of gear rotation here
 turn3=0 #put the number of gear rotation here
 rep = list(input())
 
-rotor1s,rotor1b=r1s,r1b
-rotor2s,rotor2b=r2s,r2b
-rotor3s,rotor3b=r3s,r3b
+#do not use the same gear
+rotor1s,rotor1b=r1s,r1b #put the number of gear that you wanna use
+rotor2s,rotor2b=r2s,r2b #put the number of gear that you wanna use
+rotor3s,rotor3b=r3s,r3b #put the number of gear that you wanna use
 
 #put the wire here f0,f0b="-","_"|f0!=f0b|if you only want a certain number of wire, fill with None
 f1,f1b=None,None
