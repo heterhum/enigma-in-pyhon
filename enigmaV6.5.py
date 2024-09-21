@@ -6,6 +6,10 @@ r2s = [20,8,13,24,7,14,3,9,0,22,6,4,18,11,25,10,1,19,23,5,12,21,2,16,15,17]
 r2b = [8,16,22,6,11,19,10,4,1,7,15,13,20,2,5,24,23,25,12,17,0,21,9,18,3,14]
 r3s = [17,6,22,10,25,14,3,21,0,13,18,2,24,11,5,23,12,9,8,16,7,4,1,19,20,15]
 r3b = [8,22,11,6,21,14,1,20,18,17,3,13,16,9,5,25,19,0,10,23,24,7,2,15,12,4]
+r4s = [12,9,18,1,20,14,5,17,23,8,11,24,0,15,4,13,19,7,2,16,6,25,21,3,10,22]
+r4b = [12,3,18,23,14,6,20,17,9,1,24,10,0,15,5,13,19,7,2,16,4,22,25,8,11,21]
+r5s = [0,3,16,25,21,9,14,15,18,11,20,6,12,4,10,8,13,22,17,2,1,23,24,5,7,19]
+r5b = [0,20,19,1,13,23,11,24,15,5,14,9,12,16,6,7,2,18,8,25,10,4,17,21,22,3]
 minor = [2,5,0,7,4,1,9,3,11,6,13,8,15,10,17,12,19,14,21,16,23,18,24,20,22,25]
 m=0
 rcop=[]
@@ -15,6 +19,10 @@ turn1=0 #put the number of gear rotation here
 turn2=0 #put the number of gear rotation here
 turn3=0 #put the number of gear rotation here
 rep = list(input())
+
+rotor1s,rotor1b=r1s,r1b
+rotor2s,rotor2b=r2s,r2b
+rotor3s,rotor3b=r3s,r3b
 
 #put the wire here f0,f0b="-","_"|f0!=f0b|if you only want a certain number of wire, fill with None
 f1,f1b=None,None
@@ -47,26 +55,26 @@ def turn(l1s,n):
     
 #simule the gear
 def rotor(a):
-    global r1s,r2s,r3s,r1b,r2b,r3b
+    global rotor1s,rotor1b,rotor2s,rotor2b,rotor3s,rotor3b
     pos = ipt.index(a)
-    fin=r1s[pos]
-    fin=r2s[fin]
-    fin=r3s[fin]
+    fin=rotor1s[pos]
+    fin=rotor2s[fin]
+    fin=rotor3s[fin]
     fin=minor[fin]
-    fin=r3b[fin]
-    fin=r2b[fin]
-    fin=r1b[fin]
+    fin=rotor3b[fin]
+    fin=rotor2b[fin]
+    fin=rotor1b[fin]
     res = ipt[fin]
     
     if r2s== 20:
-        r1s,r1b=turn(r1s,1),turn(r1b,1)
-        r2s,r2b=turn(r2s,1),turn(r2b,1)
-        r3s,r3b=turn(r3s,1),turn(r3b,1)
+        rotor1s,rotor1b=turn(rotor1s,1),turn(rotor1b,1)
+        rotor2s,rotor2b=turn(rotor2s,1),turn(rotor2b,1)
+        rotor3s,rotor3b=turn(rotor3s,1),turn(rotor3b,1)
     elif r1s == 7:
-        r1s,r1b=turn(r1s,1),turn(r1b,1)
-        r2s,r2b=turn(r2s,1),turn(r2b,1)
+        rotor1s,rotor1b=turn(rotor1s,1),turn(rotor1b,1)
+        rotor2s,rotor2b=turn(rotor2s,1),turn(rotor2b,1)
     else:
-        r1s,r1b=turn(r1s,1),turn(r1b,1)
+        rotor1s,rotor1b=turn(rotor1s,1),turn(rotor1b,1)
         
     return res
     
