@@ -1,4 +1,7 @@
 # enigma-in-pyhon
+
+BUG trouvé ne marche pas pour le moment
+
  enigma code in python
 
 -les 3 premier input demandé doivent etre des nombre naturelle ( >0 ) 
@@ -11,4 +14,5 @@
 
 -le projet n'est pas finie toute les fonctionnalité ne sont pas encore mise !
 
-Derniere version : V6.0
+Derniere version : V6.5
+
