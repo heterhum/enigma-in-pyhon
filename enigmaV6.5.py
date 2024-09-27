@@ -16,14 +16,10 @@ rcop=[]
 final = []
 
 turn1=0 #put the number of gear rotation here
-turn2=0 #put the number of gear rotation here
+turn2=0#put the number of gear rotation here
 turn3=0 #put the number of gear rotation here
 rep = list(input())
 
-#do not use the same gear
-rotor1s,rotor1b=r1s,r1b #put the number of gear that you wanna use
-rotor2s,rotor2b=r2s,r2b #put the number of gear that you wanna use
-rotor3s,rotor3b=r3s,r3b #put the number of gear that you wanna use
 
 #put the wire here f0,f0b="-","_"|f0!=f0b|if you only want a certain number of wire, fill with None
 f1,f1b=None,None
@@ -126,8 +122,13 @@ def resultat():
 
 check()
 
-r1s,r1b=turn(r1s,turn1),turn(r1b,turn1)
-r2s,r2b=turn(r2s,turn2),turn(r2b,turn2)
-r3s,r3b=turn(r3s,turn3),turn(r3b,turn3)
+#do not use the same gear
+rotor1s,rotor1b=r1s,r1b #put the number of gear that you wanna use
+rotor2s,rotor2b=r2s,r2b #put the number of gear that you wanna use
+rotor3s,rotor3b=r3s,r3b #put the number of gear that you wanna use
+
+rotor1s,rotor1b=turn(rotor1s,turn1),turn(rotor1b,turn1)
+rotor2s,rotor2b=turn(rotor2s,turn2),turn(rotor2b,turn2)
+rotor3s,rotor3b=turn(rotor3s,turn3),turn(rotor3b,turn3)
 
 print(resultat())
