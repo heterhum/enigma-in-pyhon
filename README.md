@@ -1,7 +1,5 @@
 # enigma-in-pyhon
 
-BUG trouvé ne marche pas pour le moment
-
  enigma code in python
 
 -les 3 premier input demandé doivent etre des nombre naturelle ( >0 ) 
@@ -11,8 +9,6 @@ BUG trouvé ne marche pas pour le moment
 -cela vous a normalement sortie une suite de lettre, pour retrouvez la phrase : 
  mettez les meme parametre ( 3 premier input )
  les lettres obtenues
-
--le projet n'est pas finie toute les fonctionnalité ne sont pas encore mise !
 
 Derniere version : V6.5
 
