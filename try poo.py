@@ -18,6 +18,9 @@ class rouage:
         
         self.r5s = [0,3,16,25,21,9,14,15,18,11,20,6,12,4,10,8,13,22,17,2,1,23,24,5,7,19]
         self.r5b = [0,20,19,1,13,23,11,24,15,5,14,9,12,16,6,7,2,18,8,25,10,4,17,21,22,3]
+        {
+            "r1"=[r1s,r1b]
+        }
         
         self.minor = [2,5,0,7,4,1,9,3,11,6,13,8,15,10,17,12,19,14,21,16,23,18,24,20,22,25]
         
@@ -38,5 +41,7 @@ temp=main.__dict__
 choix1,choix1b=temp[r1s],temp[r1b]
 choix2,choix2b=temp[r2s],temp[r2b]
 choix3,choix3b=temp[r3s],temp[r3b]
+
+main.turn()
 
 main.turn()
