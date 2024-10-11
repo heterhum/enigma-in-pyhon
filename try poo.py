@@ -1,6 +1,6 @@
 class rouage:
     def __init__(self):
-        self.turn1=0 
+        self.turn1=0
         self.turn2=0
         self.turn3=0 
 
@@ -19,26 +19,24 @@ class rouage:
         
         self.minor = [2,5,0,7,4,1,9,3,11,6,13,8,15,10,17,12,19,14,21,16,23,18,24,20,22,25]
         
-    def turn(self,dico,n):
-        rcop=[]
-        for i in range(0,n):
+    def turn(self,l1s,n):
+        for i in range(n):
             l1s.append(l1s.pop(0))
-            for i in l1s:
-                if i==0:
-                    rcop.append(25)
+            for i in range(len(l1s)):
+                if l1s[i]==0:
+                    l1s[i]=4
                 else:
-                    rcop.append(i-1)
-        return rcop
+                    l1s[i]-=1
+        return l1s
         
     def modif_list(self):
         for i in self.dico_rouage[self.rouage1]:
+            i=self.turn(i,self.turn1)
+        for i in self.dico_rouage[self.rouage2]:
+            i=self.turn(i,self.turn2)        
+        for i in self.dico_rouage[self.rouage3]:
+            i=self.turn(i,self.turn3)
+        return None
             
-            x=self.turn(i,self.turn1)
-            i.pop(0)
-            i.append(x)
-        print(i)
-        return i
-
-            
-rouage()
-print(rouage())
+class wire: #to do, optimisé comment les file sont géré
+class res: #to do, avoir une fonction qui nous affiche le résultat finale
