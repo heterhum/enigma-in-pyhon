@@ -1,3 +1,5 @@
+rep="abc e"
+
 class rouage:
     def __init__(self):
         self.turn1=0
@@ -16,8 +18,11 @@ class rouage:
             "r5":[[0,3,16,25,21,9,14,15,18,11,20,6,12,4,10,8,13,22,17,2,1,23,24,5,7,19],[0,20,19,1,13,23,11,24,15,5,14,9,12,16,6,7,2,18,8,25,10,4,17,21,22,3]]
             
         }
-        
+
         self.minor = [2,5,0,7,4,1,9,3,11,6,13,8,15,10,17,12,19,14,21,16,23,18,24,20,22,25]
+        self.ipt = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+        
+        
         
     def turn(self,l1s,n):
         for i in range(n):
@@ -37,6 +42,114 @@ class rouage:
         for i in self.dico_rouage[self.rouage3]:
             i=self.turn(i,self.turn3)
         return None
-            
-class wire: #to do, optimisé comment les file sont géré
-class res: #to do, avoir une fonction qui nous affiche le résultat finale
+    
+    def rotor(self,a):
+        pos = self.ipt.index(a)
+        fin=self.dico_rouage[self.rouage1][0][pos]
+        
+        fin=self.dico_rouage[self.rouage2][0][fin]
+        
+        fin=self.dico_rouage[self.rouage3][0][fin]
+        
+        fin=self.minor[fin]
+        
+        fin=self.dico_rouage[self.rouage3][1][fin]
+        
+        fin=self.dico_rouage[self.rouage2][1][fin]
+        
+        fin=self.dico_rouage[self.rouage1][1][fin]
+        
+        res = self.ipt[fin]
+
+        if self.dico_rouage[self.rouage2][0][0]== 1:
+            for i in self.dico_rouage[self.rouage1]:
+                i=self.turn(i,self.turn1)
+            for i in self.dico_rouage[self.rouage2]:
+                i=self.turn(i,self.turn2)        
+            for i in self.dico_rouage[self.rouage3]:
+                i=self.turn(i,self.turn3)
+        elif self.dico_rouage[self.rouage1][0][0]== 1:
+            for i in self.dico_rouage[self.rouage1]:
+                i=self.turn(i,self.turn1)
+            for i in self.dico_rouage[self.rouage2]:
+                i=self.turn(i,self.turn2) 
+        else:
+            for i in self.dico_rouage[self.rouage1]:
+                i=self.turn(i,self.turn1)
+
+        return res    
+
+class wire: 
+    def __init__(self):
+        self.dicto={
+            '1d':["a","s"],
+            '2d':["o","w"],
+            '3d':["",""],
+            '4d':["",""],
+            '5d':["",""],
+            '6d':["",""],
+            '7d':["",""],
+            '8d':["",""],
+            '9d':["",""],
+            '10d':["",""]
+        }
+        self.rep=rep
+
+    def fil(self):
+        self.rep = list(self.rep)
+        for d in range(len(self.rep)):
+            for i in self.dicto:
+                if self.rep[d]==self.dicto[i][0]:
+                    self.rep[d]=self.dicto[i][1]
+                elif self.rep[d]==self.dicto[i][1]:
+                    self.rep[d]=self.dicto[i][0]
+                else:
+                    None
+        return self.rep
+
+    
+    def check(self):
+        temp=[]
+        for i in self.dicto:
+            for e in self.dicto[i]:
+                temp.append(e)
+        for i in temp:
+            if temp.count(i) >1 and i !="":
+                return False
+        return True
+
+
+class result:
+    wireh=wire()
+    rouageh=rouage()
+    def __init__(self):
+        self.ipt = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+        return
+    
+    
+    def resultat(self):
+        wireh.rep=wireh.fil()
+        for i in range(len(wireh.rep)):
+            if wireh.rep[i]==" ":
+                pass
+            else:
+                wireh.rep[i]=rouageh.rotor(wireh.rep[i])
+        wireh.rep=wireh.fil()
+        
+
+        return wireh.rep
+
+rouageh=rouage()
+wireh=wire()
+resulth=result()
+
+
+
+if __name__== "__main__" and wireh.check()==True:
+    try:
+        rouageh.modif_list()
+        rep=resulth.resultat()
+        print(''.join(rep))
+    except Exception as e:
+        print(e)
+
