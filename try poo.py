@@ -27,7 +27,7 @@ class rouage:
             l1s.append(l1s.pop(0))
             for i in range(len(l1s)):
                 if l1s[i]==0:
-                    l1s[i]=25
+                    l1s[i]=len(l1s)-1
                 else:
                     l1s[i]-=1
         return l1s
@@ -98,11 +98,20 @@ class wire:
                 else:
                     None
         return self.rep
+    
+class Controle:
+    rouageh=rouage()
+    wireh=wire()
+
+    def __init__(self):
+        self.caracteres_spciaux = ["#", "\"", "'", "[", "]", "(", ")", "{", "}", ",", ".", ":", ";", "?", "!", "@", "%", "&", "*", "+", "-", "/", "\\", "|", "^", "~", "`", "<", ">", "=", 
+        "_", "$", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+        return None
 
     def check(self):   #permet de vérifié si tout est respecté pour le bon fonctinnement
         temp=[]
-        for i in self.dicto:
-            for e in self.dicto[i]:
+        for i in wireh.dicto:
+            for e in wireh.dicto[i]:
                 temp.append(e)
         for i in temp:
             if temp.count(i) >1 and i !="":
@@ -114,6 +123,11 @@ class wire:
         for i in temp:
             if temp.count(i)>1 and (i=="" or " "):
                 return False
+            
+        for i in list(rep):
+            for e in self.caracteres_spciaux: 
+                if i==e:
+                    return False
         return True
 
 class result:
@@ -137,12 +151,13 @@ class result:
 rouageh=rouage()
 wireh=wire()
 resulth=result()
+controleh=Controle()
 
-if __name__== "__main__" and wireh.check()==True:
+if __name__== "__main__" and controleh.check()==True:
     try:
         rouageh.modif_list()
         rep=resulth.resultat()
-        print(repcopy,"; a été transformé en :",''.join(rep))
+        print(repcopy,"<- a été transformé en ->",''.join(rep))
     except Exception as e:
         print(e)
 else:
