@@ -1,10 +1,10 @@
-rep="abc e"
-
+rep="abccb ba ee"
+print(rep)
 class rouage:
     def __init__(self):
-        self.turn1=0
-        self.turn2=0
-        self.turn3=0 
+        self.turn1=13
+        self.turn2=5
+        self.turn3=21 
 
         self.rouage1="r1"
         self.rouage2="r2"
@@ -82,8 +82,8 @@ class rouage:
 class wire: 
     def __init__(self):
         self.dicto={
-            '1d':["a","s"],
-            '2d':["o","w"],
+            '1d':["",""],
+            '2d':["",""],
             '3d':["",""],
             '4d':["",""],
             '5d':["",""],
