@@ -29,7 +29,7 @@ class rouage:
             l1s.append(l1s.pop(0))
             for i in range(len(l1s)):
                 if l1s[i]==0:
-                    l1s[i]=4
+                    l1s[i]=25
                 else:
                     l1s[i]-=1
         return l1s
