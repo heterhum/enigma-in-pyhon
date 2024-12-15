@@ -1,4 +1,4 @@
-rep="texte" #uniquement lettre minuscule, caractère spéciaux autorisé : " " (oui que l'espace, rien d'autre)
+rep="aaaaa" #uniquement lettre minuscule, caractère spéciaux autorisé : " " (oui que l'espace, rien d'autre)
 repcopy=rep
 
 class rouage:
@@ -8,7 +8,7 @@ class rouage:
         self.turn3=0
 
         self.rouage1="r1" #a remplacé de r1 a r5 inclue, pas deux fois le même
-        self.rouage2="r2"
+        self.rouage2="r4"
         self.rouage3="r3"
         
         self.dico_rouage={
@@ -153,6 +153,27 @@ wireh=wire()
 resulth=result()
 controleh=Controle()
 
+def main(rouage1,rouage2,rouage3,turn1,turn2,turn3,rep,dicto):
+    rouageh.rouage1=rouage1 
+    rouageh.rouage2=rouage2
+    rouageh.rouage3=rouage3
+
+    rouageh.turn1=turn1
+    rouageh.turn2=turn2
+    rouageh.turn3=turn3
+
+    wireh.dicto=dicto
+
+    if __name__== "__main__" and controleh.check()==True:
+        try:
+            rouageh.modif_list()
+            rep=resulth.resultat()
+            print(repcopy,"<- a été transformé en ->",''.join(rep))
+        except Exception as e:
+            print(e)
+    else:
+        print("il y a sans doute une erreur dans les paramétrage, vérifie bien que toute les règle sont respecté !")
+
 if __name__== "__main__" and controleh.check()==True:
     try:
         rouageh.modif_list()
@@ -162,4 +183,3 @@ if __name__== "__main__" and controleh.check()==True:
         print(e)
 else:
     print("il y a sans doute une erreur dans les paramétrage, vérifie bien que toute les règle sont respecté !")
-
